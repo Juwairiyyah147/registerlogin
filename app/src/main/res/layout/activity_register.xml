@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.registerActivity"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTRATION"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_gravity="left"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/logon" />
+
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
+        android:drawableLeft="@drawable/user"
+        android:hint="Username" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/pass"
+        android:drawablePadding="20dp"
+        android:hint="Password"
+        android:paddingLeft="15dp" />
+
+    <EditText
+        android:id="@+id/cnf_password"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/pass"
+        android:drawablePadding="20dp"
+        android:hint="Confirm Password"
+        android:paddingLeft="15dp" />
+
+    <EditText
+        android:id="@+id/rollno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Roll Number"
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/branchsp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Branch" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="                      " />
+
+        <Spinner
+            android:id="@+id/semestersp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Semester"/>
+
+
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="26dp"
+        android:text="@string/REGISTER"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already Registered?  "/>
+
+        <TextView
+            android:id="@+id/text_login"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:clickable="true"
+            android:text="@string/action_sign_in"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
