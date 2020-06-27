@@ -124,7 +124,12 @@ public class registerActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        String accessTkn = response.getString("access_token");
+                        String accessTkn = null;
+                        try {
+                            accessTkn = response.getString("access_token");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         MainActivity2.text.setText(accessTkn);
 
 

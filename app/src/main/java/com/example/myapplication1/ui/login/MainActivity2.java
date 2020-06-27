@@ -26,7 +26,7 @@ import java.util.Map;
 public class MainActivity2 extends AppCompatActivity {
     static TextView text;
     private RequestQueue queue;
-    JsonObjectRequest objectRequest;
+    JsonArrayRequest arrayRequest;
     JSONObject data;
 
     @Override
@@ -39,15 +39,15 @@ public class MainActivity2 extends AppCompatActivity {
         String URL ="http://cbit-qp-api.herokuapp.com/tracking";
 
         queue = Volley.newRequestQueue(this);
-        objectRequest = new JsonObjectRequest(Request.Method.GET,
+        arrayRequest = new JsonArrayRequest(Request.Method.GET,
                 URL,
                 null,
-                new Response.Listener<JSONObject>() {
+                new Response.Listener<JSONArray>() {
 
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
                         try{
-                            text.setText(response.get(JSONObject).toString());
+                            text.setText(response.getJSONObject(1).toString());
 
 
                         } catch (JSONException e) {
