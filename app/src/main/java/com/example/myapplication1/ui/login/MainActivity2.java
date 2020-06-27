@@ -11,10 +11,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.myapplication1.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,7 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         text = (TextView) findViewById(R.id.textView);
 
-        String URL ="";
+        String URL ="http://cbit-qp-api.herokuapp.com/tracking";
 
         queue = Volley.newRequestQueue(this);
         objectRequest = new JsonObjectRequest(Request.Method.GET,
@@ -45,7 +47,7 @@ public class MainActivity2 extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try{
-                            text.setText(response.getJSONObject().toString());
+                            text.setText(response.get(JSONObject).toString());
 
 
                         } catch (JSONException e) {

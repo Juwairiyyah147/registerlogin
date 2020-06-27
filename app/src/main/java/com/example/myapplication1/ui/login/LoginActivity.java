@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -64,11 +65,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        String URL ="";
+        String URL ="http://cbit-qp-api.herokuapp.com/user-login";
         data = new JSONObject();
 
         try {
-            data.put("username",usernameEditText.getText().toString());
+            data.put("uname",usernameEditText.getText().toString());
             data.put("password",passwordEditText.getText().toString());
 
         } catch (JSONException e) {
@@ -87,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         String accessTkn = response.getString("access_token");
                         MainActivity2.text.setText(accessTkn);
+
 
                     }
 

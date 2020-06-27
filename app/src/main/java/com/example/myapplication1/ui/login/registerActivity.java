@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -55,9 +56,7 @@ public class registerActivity extends AppCompatActivity {
             }
         });
 
-        if (!passwordEditText.equals(cnf_passwordEditText)){
-            Toast.makeText(registerActivity.this,"passwords dont match",Toast.LENGTH_SHORT).show();
-        }
+
 
 
         spinner1= (Spinner) findViewById(R.id.branchsp);
@@ -78,7 +77,7 @@ public class registerActivity extends AppCompatActivity {
 
             }
         });
-        String bran = spinner1. getSelectedItem(). toString();
+        Object bran = spinner1. getSelectedItem();
 
         spinner2= (Spinner) findViewById(R.id.semestersp);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,R.array.Semester,android.R.layout.simple_spinner_item);
@@ -98,17 +97,18 @@ public class registerActivity extends AppCompatActivity {
 
             }
         });
-        String sem = spinner2. getSelectedItem(). toString();
+        Object sem = spinner2.getSelectedItem();
 
-        String URL ="";
+        String URL ="http://cbit-qp-api.herokuapp.com/user-register";
         data = new JSONObject();
 
         try {
-            data.put("username",usernameEditText.getText().toString());
+
+            data.put("uname",usernameEditText.getText().toString());
             data.put("password",passwordEditText.getText().toString());
-            data.put("Roll Number",rollnoEditText.getText().toString());
-            data.put("Branch",sem);
-            data.put("Semester",bran);
+            data.put("rno",rollnoEditText.getText().toString());
+            data.put("b_id",sem);
+            data.put("sem_no",bran);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -126,6 +126,7 @@ public class registerActivity extends AppCompatActivity {
 
                         String accessTkn = response.getString("access_token");
                         MainActivity2.text.setText(accessTkn);
+
 
                     }
 
@@ -145,8 +146,16 @@ public class registerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                queue.add(objectRequest);
-                openActivity2();
+                if (passwordEditText.getText().toString().equals(cnf_passwordEditText.getText().toString())){
+                    queue.add(objectRequest);
+                    openActivity2();
+
+                }
+                else {
+                    Toast.makeText(registerActivity.this,"passwords dont match",Toast.LENGTH_SHORT).show();
+                }
+
+
 
 
 
