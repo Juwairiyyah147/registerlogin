@@ -55,6 +55,10 @@ public class registerActivity extends AppCompatActivity {
             }
         });
 
+        if (!passwordEditText.equals(cnf_passwordEditText)){
+            Toast.makeText(registerActivity.this,"passwords dont match",Toast.LENGTH_SHORT).show();
+        }
+
 
         spinner1= (Spinner) findViewById(R.id.branchsp);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.Branch,android.R.layout.simple_spinner_item);
@@ -102,7 +106,6 @@ public class registerActivity extends AppCompatActivity {
         try {
             data.put("username",usernameEditText.getText().toString());
             data.put("password",passwordEditText.getText().toString());
-            data.put("Confirm password",cnf_passwordEditText.getText().toString());
             data.put("Roll Number",rollnoEditText.getText().toString());
             data.put("Branch",sem);
             data.put("Semester",bran);
